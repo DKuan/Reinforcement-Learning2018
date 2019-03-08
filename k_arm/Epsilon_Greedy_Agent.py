@@ -1,6 +1,8 @@
 """
 This file is the sub of base pakage's module class: Agent_Base
 rewrite the method of three
+author: Zachary
+Reserved rights
 """
 import sys
 sys.path.append('../')
@@ -8,7 +10,7 @@ sys.path.append('../')
 from base.Agent_Base import Agent_Base 
 import numpy as np
 
-class K_Arm_GreedyAgent(Agent_Base):
+class Greedy_Agent(Agent_Base):
 	"""
 	this class is the k arm agent for action_value method to realize RL algorithm
 	"""
@@ -31,15 +33,13 @@ class K_Arm_GreedyAgent(Agent_Base):
 		use the epsilon-greedy rule to make the choose
 		"""
 		if np.random.rand() > self.epsilon: #use the greedy rule
-			max_id = np.where(self.action_value == np.max(self.action_value)) # find the most value
-			#print("the max id is ", max_id)
-			#print("the action value is ", self.action_value)
+			max_id = np.where(self.action_value == np.max(self.action_value))[0] # find the most value
 
-			if not max_id.__len__ == 1:
-				action = max_id[np.random.randint(max_id.__len__())][0] # choose a random number in the size	
+			if not max_id.__len__() == 1:
+				action = max_id[np.random.randint(max_id.__len__())] # choose a random number in the size	
 			else:
-				action = self.action_value[max_id][0] # use the max value
-  
+				action = max_id[0] # use the max value
+ 
 		else:
 			action = np.random.randint(self.action_value.size) # choose randomly
 		
@@ -57,4 +57,3 @@ class K_Arm_GreedyAgent(Agent_Base):
 		old_value = self.action_value[action] # stand the old value for cal
 		self.action_value[action] += (reward - old_value) / (0.001 + self.action_cnt[action])
 		self.reward_all += reward # record all the reward the agent get
-
