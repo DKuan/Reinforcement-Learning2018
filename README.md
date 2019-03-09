@@ -2,11 +2,9 @@
 The sample code in the book
 
 Needed Package:
-
 numpy
-
 python = 3.6
+pytorch = 1.0.1
 
+Chapter2 action-value bandit epsilon-greedy 
 Time:2019/03/07 
-
-Chapter2 action-value bandit epsilon-greedy
