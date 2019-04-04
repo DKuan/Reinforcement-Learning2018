@@ -1,0 +1,260 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddChild	UCT.py	/^    def AddChild(self, m, s):$/;"	m	class:Node
+AdjacentEnemyDirections	UCT.py	/^    def AdjacentEnemyDirections(self,x,y):$/;"	m	class:OthelloState
+AdjacentToEnemy	UCT.py	/^    def AdjacentToEnemy(self,x,y):$/;"	m	class:OthelloState
+Agent_Base	mcts_agent.py	/^from base.Agent_Base import Agent_Base $/;"	i
+Agent_Base	mcts_agent_1_1.py	/^from base.Agent_Base import Agent_Base $/;"	i
+Agent_Base	mcts_agent_1_2.py	/^from base.Agent_Base import Agent_Base $/;"	i
+Agent_Base	mcts_agent_28_1.py	/^from base.Agent_Base import Agent_Base $/;"	i
+Agent_Base	mcts_agent_28_2.py	/^from base.Agent_Base import Agent_Base $/;"	i
+Agent_Base	mcts_agent_29_1.py	/^from base.Agent_Base import Agent_Base $/;"	i
+Agent_Base	mcts_agent_2_1.py	/^from base.Agent_Base import Agent_Base $/;"	i
+ChildrenToString	UCT.py	/^    def ChildrenToString(self):$/;"	m	class:Node
+Clone	UCT.py	/^    def Clone(self):$/;"	m	class:GameState
+Clone	UCT.py	/^    def Clone(self):$/;"	m	class:NimState
+Clone	UCT.py	/^    def Clone(self):$/;"	m	class:OXOState
+Clone	UCT.py	/^    def Clone(self):$/;"	m	class:OthelloState
+DoMove	UCT.py	/^    def DoMove(self, move):$/;"	m	class:GameState
+DoMove	UCT.py	/^    def DoMove(self, move):$/;"	m	class:NimState
+DoMove	UCT.py	/^    def DoMove(self, move):$/;"	m	class:OXOState
+DoMove	UCT.py	/^    def DoMove(self, move):$/;"	m	class:OthelloState
+ExistsSandwichedCounter	UCT.py	/^    def ExistsSandwichedCounter(self,x,y):$/;"	m	class:OthelloState
+Game	env_gobang/game.py	/^class Game(object):$/;"	c
+Game	env_gobang/gomoku.py	/^from env_gobang.game import Game$/;"	i
+GameState	UCT.py	/^class GameState:$/;"	c
+GetAllSandwichedCounters	UCT.py	/^    def GetAllSandwichedCounters(self, x, y):$/;"	m	class:OthelloState
+GetMoves	UCT.py	/^    def GetMoves(self):$/;"	m	class:GameState
+GetMoves	UCT.py	/^    def GetMoves(self):$/;"	m	class:NimState
+GetMoves	UCT.py	/^    def GetMoves(self):$/;"	m	class:OXOState
+GetMoves	UCT.py	/^    def GetMoves(self):$/;"	m	class:OthelloState
+GetResult	UCT.py	/^    def GetResult(self, playerjm):$/;"	m	class:GameState
+GetResult	UCT.py	/^    def GetResult(self, playerjm):$/;"	m	class:NimState
+GetResult	UCT.py	/^    def GetResult(self, playerjm):$/;"	m	class:OXOState
+GetResult	UCT.py	/^    def GetResult(self, playerjm):$/;"	m	class:OthelloState
+Gomoku	env_gobang/gomoku.py	/^class Gomoku(Game):$/;"	c
+Gomoku	main.py	/^from env_gobang.gomoku import Gomoku$/;"	i
+Gomoku	test.py	/^from env_gobang.gomoku import Gomoku$/;"	i
+IndentString	UCT.py	/^    def IndentString(self,indent):$/;"	m	class:Node
+IsOnBoard	UCT.py	/^    def IsOnBoard(self, x, y):$/;"	m	class:OthelloState
+MCTS_Agent	main.py	/^from mcts_agent_2_1 import MCTS_Agent$/;"	i
+MCTS_Agent	mcts_agent.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	mcts_agent_1_1.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	mcts_agent_1_2.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	mcts_agent_28_1.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	mcts_agent_28_2.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	mcts_agent_29_1.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	mcts_agent_2_1.py	/^class MCTS_Agent(Agent_Base):$/;"	c
+MCTS_Agent	test.py	/^from mcts_agent_28_2 import MCTS_Agent$/;"	i
+NimState	UCT.py	/^class NimState:$/;"	c
+Node	UCT.py	/^class Node:$/;"	c
+Node	main.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent_1_1.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent_1_2.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent_28_1.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent_28_2.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent_29_1.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_agent_2_1.py	/^from mcts_tree import Node$/;"	i
+Node	mcts_tree.py	/^class Node():$/;"	c
+Node	test.py	/^from mcts_tree import Node$/;"	i
+OXOState	UCT.py	/^class OXOState:$/;"	c
+OthelloState	UCT.py	/^class OthelloState:$/;"	c
+SandwichedCounters	UCT.py	/^    def SandwichedCounters(self, x, y, dx, dy):$/;"	m	class:OthelloState
+TreeToString	UCT.py	/^    def TreeToString(self, indent):$/;"	m	class:Node
+UCT	UCT.py	/^def UCT(rootstate, itermax, verbose = False):$/;"	f
+UCTPlayGame	UCT.py	/^def UCTPlayGame():$/;"	f
+UCTSelectChild	UCT.py	/^    def UCTSelectChild(self):$/;"	m	class:Node
+Update	UCT.py	/^    def Update(self, result):$/;"	m	class:Node
+__init__	UCT.py	/^    def __init__(self):$/;"	m	class:GameState
+__init__	UCT.py	/^    def __init__(self):$/;"	m	class:OXOState
+__init__	UCT.py	/^    def __init__(self, ch):$/;"	m	class:NimState
+__init__	UCT.py	/^    def __init__(self, move = None, parent = None, state = None):$/;"	m	class:Node
+__init__	UCT.py	/^    def __init__(self,sz = 8):$/;"	m	class:OthelloState
+__init__	env_gobang/game.py	/^    def __init__(self):$/;"	m	class:Game
+__init__	env_gobang/gomoku.py	/^    def __init__(self, board_size=10, num4win=5):$/;"	m	class:Gomoku
+__init__	mcts_agent.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_agent_1_1.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_agent_1_2.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_agent_28_1.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_agent_28_2.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_agent_29_1.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_agent_2_1.py	/^    def __init__(self, env, load_model_flag=False, discount=1.0, max_mcts_simulation=20, max_mcts_episode=1000):$/;"	m	class:MCTS_Agent
+__init__	mcts_tree.py	/^    def __init__(self, father=None, player=None, action=None):$/;"	m	class:Node
+__repr__	UCT.py	/^    def __repr__(self):$/;"	m	class:GameState	file:
+__repr__	UCT.py	/^    def __repr__(self):$/;"	m	class:NimState	file:
+__repr__	UCT.py	/^    def __repr__(self):$/;"	m	class:Node	file:
+__repr__	UCT.py	/^    def __repr__(self):$/;"	m	class:OXOState	file:
+__repr__	UCT.py	/^    def __repr__(self):$/;"	m	class:OthelloState	file:
+__simulation_reset	mcts_agent.py	/^    def __simulation_reset(self, state_store, available_action_space, invalid_action_space, current_player_id, last_move):$/;"	m	class:MCTS_Agent	file:
+__simulation_reset	mcts_agent_28_1.py	/^    def __simulation_reset(self, state_store, available_action_space, invalid_action_space, current_player_id, last_move):$/;"	m	class:MCTS_Agent	file:
+_coordinate_to_int	env_gobang/gomoku.py	/^    def _coordinate_to_int(self, coordinate):$/;"	m	class:Gomoku
+_int_to_coordinate	env_gobang/gomoku.py	/^    def _int_to_coordinate(self, action):$/;"	m	class:Gomoku
+_is_terminal	env_gobang/gomoku.py	/^    def _is_terminal(self):$/;"	m	class:Gomoku
+_is_valid_move	env_gobang/gomoku.py	/^    def _is_valid_move(self, action):$/;"	m	class:Gomoku
+_last_player_id	env_gobang/gomoku.py	/^    def _last_player_id(self):$/;"	m	class:Gomoku
+_trajectory	main.py	/^_trajectory = []$/;"	v
+_trajectory	test.py	/^_trajectory = []$/;"	v
+act	mcts_agent.py	/^    def act(self, state_now):$/;"	m	class:MCTS_Agent
+act	mcts_agent_1_1.py	/^    def act(self):$/;"	m	class:MCTS_Agent
+act	mcts_agent_1_2.py	/^    def act(self):$/;"	m	class:MCTS_Agent
+act	mcts_agent_28_1.py	/^    def act(self, state_now):$/;"	m	class:MCTS_Agent
+act	mcts_agent_28_2.py	/^    def act(self):$/;"	m	class:MCTS_Agent
+act	mcts_agent_29_1.py	/^    def act(self):$/;"	m	class:MCTS_Agent
+act	mcts_agent_2_1.py	/^    def act(self, flag=False):$/;"	m	class:MCTS_Agent
+action	main.py	/^            action = agent.act()$/;"	v
+action	main.py	/^            action = agent.act(flag=True)$/;"	v
+action	main.py	/^        action = int(str_action[0])*board_size_+int(str_action[2])$/;"	v
+action	test.py	/^action = [3, 8, 9, 10, 11, 12, 50, 49]$/;"	v
+actions	main.py	/^actions = [3, 8, 9, 10, 11, 12, 50, 49]$/;"	v
+agent	main.py	/^agent = MCTS_Agent(env, load_model_flag=load_model_flag, max_mcts_episode=max_mcts_episode, max_mcts_simulation=max_mcts_simulation) # init the agent$/;"	v
+agent	test.py	/^agent = MCTS_Agent(env, load_model_flag=load_model_flag, max_mcts_episode=max_mcts_episode, max_mcts_simulation=max_mcts_simulation) # init the agent$/;"	v
+board_size_	main.py	/^board_size_ = 8$/;"	v
+choose_neighbor	mcts_agent_1_1.py	/^    def choose_neighbor(self):$/;"	m	class:MCTS_Agent
+choose_neighbor	mcts_agent_1_2.py	/^    def choose_neighbor(self):$/;"	m	class:MCTS_Agent
+choose_neighbor	mcts_agent_28_2.py	/^    def choose_neighbor(self):$/;"	m	class:MCTS_Agent
+choose_neighbor	mcts_agent_29_1.py	/^    def choose_neighbor(self):$/;"	m	class:MCTS_Agent
+choose_neighbor	mcts_agent_2_1.py	/^    def choose_neighbor(self):$/;"	m	class:MCTS_Agent
+data_return	main.py	/^        data_return = env.step(action)$/;"	v
+data_return	test.py	/^    data_return = env.step(action)$/;"	v
+deep_copy	mcts_agent_1_1.py	/^    def deep_copy(self, store=True):$/;"	m	class:MCTS_Agent
+deep_copy	mcts_agent_1_2.py	/^    def deep_copy(self, store=True):$/;"	m	class:MCTS_Agent
+deep_copy	mcts_agent_28_2.py	/^    def deep_copy(self, store=True):$/;"	m	class:MCTS_Agent
+deep_copy	mcts_agent_29_1.py	/^    def deep_copy(self, store=True):$/;"	m	class:MCTS_Agent
+deep_copy	mcts_agent_2_1.py	/^    def deep_copy(self, store=True):$/;"	m	class:MCTS_Agent
+env	main.py	/^env = Gomoku(board_size=board_size_, num4win=num4win_)$/;"	v
+env	test.py	/^env = Gomoku(board_size=5, num4win=3)$/;"	v
+find_center	mcts_agent_28_2.py	/^    def find_center(self, player):$/;"	m	class:MCTS_Agent
+find_center	mcts_agent_29_1.py	/^    def find_center(self, player):$/;"	m	class:MCTS_Agent
+game	env_gobang/gomoku.py	/^    game = Gomoku()$/;"	v
+load_model	mcts_agent.py	/^    def load_model(self):$/;"	m	class:MCTS_Agent
+load_model	mcts_agent_1_1.py	/^    def load_model(self):$/;"	m	class:MCTS_Agent
+load_model	mcts_agent_1_2.py	/^    def load_model(self):$/;"	m	class:MCTS_Agent
+load_model	mcts_agent_28_1.py	/^    def load_model(self):$/;"	m	class:MCTS_Agent
+load_model	mcts_agent_28_2.py	/^    def load_model(self):$/;"	m	class:MCTS_Agent
+load_model	mcts_agent_29_1.py	/^    def load_model(self):$/;"	m	class:MCTS_Agent
+load_model_flag	main.py	/^load_model_flag = False$/;"	v
+load_model_flag	test.py	/^load_model_flag = True$/;"	v
+math	mcts_agent_1_1.py	/^import math$/;"	i
+math	mcts_agent_1_2.py	/^import math$/;"	i
+math	mcts_agent_28_2.py	/^import math$/;"	i
+math	mcts_agent_29_1.py	/^import math$/;"	i
+math	mcts_agent_2_1.py	/^import math$/;"	i
+max_mcts_episode	main.py	/^max_mcts_episode = 1000 # the episode's number for agent to run the complete mcts$/;"	v
+max_mcts_episode	test.py	/^max_mcts_episode = 2 # the episode's number for agent to run the complete mcts$/;"	v
+max_mcts_simulation	main.py	/^max_mcts_simulation = 18 # the steps that the simulation runs$/;"	v
+max_mcts_simulation	test.py	/^max_mcts_simulation = 80 # the steps that the simulation runs$/;"	v
+mcts_backup	mcts_agent.py	/^    def mcts_backup(self, reward, _trajectory):$/;"	m	class:MCTS_Agent
+mcts_backup	mcts_agent_1_1.py	/^    def mcts_backup(self, reward):$/;"	m	class:MCTS_Agent
+mcts_backup	mcts_agent_1_2.py	/^    def mcts_backup(self, reward):$/;"	m	class:MCTS_Agent
+mcts_backup	mcts_agent_28_1.py	/^    def mcts_backup(self, reward, _trajectory):$/;"	m	class:MCTS_Agent
+mcts_backup	mcts_agent_28_2.py	/^    def mcts_backup(self, reward):$/;"	m	class:MCTS_Agent
+mcts_backup	mcts_agent_29_1.py	/^    def mcts_backup(self, reward):$/;"	m	class:MCTS_Agent
+mcts_backup	mcts_agent_2_1.py	/^    def mcts_backup(self, reward):$/;"	m	class:MCTS_Agent
+mcts_expassion	mcts_agent.py	/^    def mcts_expassion(self):$/;"	m	class:MCTS_Agent
+mcts_expassion	mcts_agent_1_1.py	/^    def mcts_expassion(self):$/;"	m	class:MCTS_Agent
+mcts_expassion	mcts_agent_1_2.py	/^    def mcts_expassion(self):$/;"	m	class:MCTS_Agent
+mcts_expassion	mcts_agent_28_1.py	/^    def mcts_expassion(self):$/;"	m	class:MCTS_Agent
+mcts_expassion	mcts_agent_28_2.py	/^    def mcts_expassion(self):$/;"	m	class:MCTS_Agent
+mcts_expassion	mcts_agent_29_1.py	/^    def mcts_expassion(self):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent.py	/^    def mcts_selection(self, state_now):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent_1_1.py	/^    def mcts_selection(self):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent_1_2.py	/^    def mcts_selection(self):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent_28_1.py	/^    def mcts_selection(self, state_now):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent_28_2.py	/^    def mcts_selection(self):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent_29_1.py	/^    def mcts_selection(self):$/;"	m	class:MCTS_Agent
+mcts_selection	mcts_agent_2_1.py	/^    def mcts_selection(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent_1_1.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent_1_2.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent_28_1.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent_28_2.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent_29_1.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+mcts_simulation	mcts_agent_2_1.py	/^    def mcts_simulation(self):$/;"	m	class:MCTS_Agent
+neighbor_place	mcts_agent_28_1.py	/^    def neighbor_place(last_action, delta, board_size):$/;"	m	class:MCTS_Agent
+neighbor_place	mcts_agent_28_2.py	/^    def neighbor_place(self, last_move, delta, board_size):$/;"	m	class:MCTS_Agent
+neighbor_place	mcts_agent_29_1.py	/^    def neighbor_place(self, last_move, delta, board_size):$/;"	m	class:MCTS_Agent
+np	env_gobang/gomoku.py	/^import numpy as np$/;"	i
+np	main.py	/^import numpy as np$/;"	i
+np	mcts_agent.py	/^import numpy as np$/;"	i
+np	mcts_agent_1_1.py	/^import numpy as np$/;"	i
+np	mcts_agent_1_2.py	/^import numpy as np$/;"	i
+np	mcts_agent_28_1.py	/^import numpy as np$/;"	i
+np	mcts_agent_28_2.py	/^import numpy as np$/;"	i
+np	mcts_agent_29_1.py	/^import numpy as np$/;"	i
+np	mcts_agent_2_1.py	/^import numpy as np$/;"	i
+np	test.py	/^import numpy as np$/;"	i
+num4win_	main.py	/^num4win_ = 5$/;"	v
+pickle	mcts_agent.py	/^import pickle$/;"	i
+pickle	mcts_agent_1_1.py	/^import pickle$/;"	i
+pickle	mcts_agent_1_2.py	/^import pickle$/;"	i
+pickle	mcts_agent_28_1.py	/^import pickle$/;"	i
+pickle	mcts_agent_28_2.py	/^import pickle$/;"	i
+pickle	mcts_agent_29_1.py	/^import pickle$/;"	i
+pickle	mcts_agent_2_1.py	/^import pickle$/;"	i
+policy_default	mcts_agent.py	/^    def policy_default(self, state_now):$/;"	m	class:MCTS_Agent
+policy_default	mcts_agent_1_1.py	/^    def policy_default(self):$/;"	m	class:MCTS_Agent
+policy_default	mcts_agent_1_2.py	/^    def policy_default(self):$/;"	m	class:MCTS_Agent
+policy_default	mcts_agent_28_1.py	/^    def policy_default(self, state_now):$/;"	m	class:MCTS_Agent
+policy_default	mcts_agent_28_2.py	/^    def policy_default(self):$/;"	m	class:MCTS_Agent
+policy_default	mcts_agent_29_1.py	/^    def policy_default(self):$/;"	m	class:MCTS_Agent
+policy_default	mcts_agent_2_1.py	/^    def policy_default(self):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent.py	/^    def policy_tree(self, state_now):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent_1_1.py	/^    def policy_tree(self):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent_1_2.py	/^    def policy_tree(self):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent_28_1.py	/^    def policy_tree(self, state_now):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent_28_2.py	/^    def policy_tree(self):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent_29_1.py	/^    def policy_tree(self):$/;"	m	class:MCTS_Agent
+policy_tree	mcts_agent_2_1.py	/^    def policy_tree(self):$/;"	m	class:MCTS_Agent
+random	UCT.py	/^import random$/;"	i
+reset	env_gobang/game.py	/^    def reset(self):$/;"	m	class:Game
+reset	env_gobang/gomoku.py	/^    def reset(self):$/;"	m	class:Gomoku
+run	env_gobang/game.py	/^    def run(self, player_a, player_b):$/;"	m	class:Game
+run	env_gobang/gomoku.py	/^    def run(self, player_a, player_b, is_show=True):$/;"	m	class:Gomoku
+save_model	mcts_agent.py	/^    def save_model(self):$/;"	m	class:MCTS_Agent
+save_model	mcts_agent_1_1.py	/^    def save_model(self):$/;"	m	class:MCTS_Agent
+save_model	mcts_agent_1_2.py	/^    def save_model(self):$/;"	m	class:MCTS_Agent
+save_model	mcts_agent_28_1.py	/^    def save_model(self):$/;"	m	class:MCTS_Agent
+save_model	mcts_agent_28_2.py	/^    def save_model(self):$/;"	m	class:MCTS_Agent
+save_model	mcts_agent_29_1.py	/^    def save_model(self):$/;"	m	class:MCTS_Agent
+state_check	mcts_agent.py	/^    def state_check(self, node_now, depth, action, new_state):$/;"	m	class:MCTS_Agent
+state_check	mcts_agent_1_1.py	/^    def state_check(self, node_now, depth, action, new_state):$/;"	m	class:MCTS_Agent
+state_check	mcts_agent_1_2.py	/^    def state_check(self, node_now, depth, action, new_state):$/;"	m	class:MCTS_Agent
+state_check	mcts_agent_28_1.py	/^    def state_check(self, node_now, depth, action, new_state):$/;"	m	class:MCTS_Agent
+state_check	mcts_agent_28_2.py	/^    def state_check(self, node_now, depth, action, new_state):$/;"	m	class:MCTS_Agent
+state_check	mcts_agent_29_1.py	/^    def state_check(self, node_now, depth, action, new_state):$/;"	m	class:MCTS_Agent
+step	env_gobang/game.py	/^    def step(self, action):$/;"	m	class:Game
+step	env_gobang/gomoku.py	/^    def step(self, action):$/;"	m	class:Gomoku
+str_	main.py	/^        str_ = 'False'$/;"	v
+str_action	main.py	/^        str_action = input()$/;"	v
+sys	mcts_agent.py	/^import sys$/;"	i
+sys	mcts_agent_1_1.py	/^import sys$/;"	i
+sys	mcts_agent_1_2.py	/^import sys$/;"	i
+sys	mcts_agent_28_1.py	/^import sys$/;"	i
+sys	mcts_agent_28_2.py	/^import sys$/;"	i
+sys	mcts_agent_29_1.py	/^import sys$/;"	i
+sys	mcts_agent_2_1.py	/^import sys$/;"	i
+tqdm	main.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent_1_1.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent_1_2.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent_28_1.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent_28_2.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent_29_1.py	/^from tqdm import tqdm$/;"	i
+tqdm	mcts_agent_2_1.py	/^from tqdm import tqdm$/;"	i
+trace_neighbor_place	mcts_agent_1_1.py	/^    def trace_neighbor_place(self, delta=1):$/;"	m	class:MCTS_Agent
+trace_neighbor_place	mcts_agent_1_2.py	/^    def trace_neighbor_place(self, delta=1):$/;"	m	class:MCTS_Agent
+trace_neighbor_place	mcts_agent_2_1.py	/^    def trace_neighbor_place(self, delta=1):$/;"	m	class:MCTS_Agent
+update	mcts_agent.py	/^    def update(self, reward, state_new):$/;"	m	class:MCTS_Agent
+update	mcts_agent_1_1.py	/^    def update(self, reward, state_new):$/;"	m	class:MCTS_Agent
+update	mcts_agent_1_2.py	/^    def update(self, reward, state_new):$/;"	m	class:MCTS_Agent
+update	mcts_agent_28_1.py	/^    def update(self, reward, state_new):$/;"	m	class:MCTS_Agent
+update	mcts_agent_28_2.py	/^    def update(self, reward, state_new):$/;"	m	class:MCTS_Agent
+update	mcts_agent_29_1.py	/^    def update(self, reward, state_new):$/;"	m	class:MCTS_Agent
+visualize	env_gobang/game.py	/^    def visualize(self):$/;"	m	class:Game
+visualize	env_gobang/gomoku.py	/^    def visualize(self):$/;"	m	class:Gomoku
+win_time	main.py	/^win_time = 0 # record the win time$/;"	v
