@@ -5,17 +5,15 @@ for the mcts_agent
 Author: Zachary
 Reserved Rights. 
 """
-import sys
-sys.path.append('../')
+#import sys
+#sys.path.append('../')
 
-from base.Agent_Base import Agent_Base 
+#from base.Agent_Base import Agent_Base 
 from mcts_tree import Node
 import numpy as np
-from tqdm import tqdm
-import pickle
 import math
 
-class MCTS_Agent(Agent_Base):
+class MCTS_Agent():
     """
     this class is the running-time mcts agent to find the good action for the state now
     """
@@ -29,7 +27,7 @@ class MCTS_Agent(Agent_Base):
         |max_mcts_episode: int, the max num of the complete mcts run
         |max_mcts_simulation: int, the max num of the simulation run in one mcts
         """
-        Agent_Base.__init__(self)
+        #Agent_Base.__init__(self)
         self.c = 2.46 # experienced value
         self.env = env # for the use of bellow
         self.terminate = False # show if the game is over
