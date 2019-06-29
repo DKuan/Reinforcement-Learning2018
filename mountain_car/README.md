@@ -1,4 +1,11 @@
 # Project: Mountain-Car
+## Add solution for DQN 19-6-29
+You can run the DQN train by running the file: train_agent_dqn.py  
+### new files are: 
+train_agent_dqn.py  
+batch_dqn_agent.py  
+model_dqn.py
+
 ## File struct:
 main: mountain_car_op.py  
 agent: 	mocar_one_sarsa-agent.py  
@@ -10,6 +17,7 @@ sparse coding:	tile_coding.py
 2. numpy  
 3. tqdm  
 4. gym  
+5. Pytorch = 1.0+
 
 ## Run method:
 1. change the mountain_car_op.py parameter, if you want to run one-step sarsa, then change   
