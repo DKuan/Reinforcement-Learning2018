@@ -19,15 +19,15 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='init the par')
 parser.add_argument('-game_num', '--game_num', nargs='?', default=40000)
-parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=160000)
-parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=240)
+parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=1600000)
+parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=300)
+parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0001)
 parser.add_argument('-device', '--device', nargs='?', default=device)
-parser.add_argument('-model_path', '--model_path', \
-                       nargs='?', default='model/')
+parser.add_argument('-model_path', '--model_path', nargs='?', default='model/')
 parser.add_argument('-old_model_name', '--o_model_name', nargs='?', default='0613205430.pt')
 parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', default='r_memory.pkl')
 parser.add_argument('-model_load', '--model_load', nargs='?', default=False)
-parser.add_argument('-gamma', '--gamma', nargs='?', default=0.93)
+parser.add_argument('-gamma', '--gamma', nargs='?', default=0.99)
 parser.add_argument('-game', '--game_name', nargs='?', default="grid_world")
 args = parser.parse_args()
 #print(args.update_period)
@@ -49,8 +49,8 @@ agent = RL_AGENT_A3C(args.lr,
                         args.model_load)
 
 """ Set seed for reproducibility """
-model_store_set = [args.step_stop-1200000, args.step_stop-1000000, args.step_stop-900000, \
-        args.step_stop-800000, args.step_stop-600000, args.step_stop-400000, \
+model_store_set = [
+        #args.step_stop-800000, args.step_stop-600000, args.step_stop-400000, \
         args.step_stop-300000, args.step_stop-100000, args.step_stop-10000]
 
 """ Play 10 games """
@@ -68,7 +68,6 @@ for i in range(args.game_num):
 
         """ Reset environment """
         obs = env.reset()
-        agent.reset()
         done = False
 
         """ Take actions as long as game is not done """

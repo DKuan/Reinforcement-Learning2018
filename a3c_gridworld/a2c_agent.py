@@ -11,24 +11,21 @@ import sys
 """ add the path to the sys.path"""
 sys.path.append(os.getcwd())
 
+from collections import namedtuple
 import gym
 import time
 import random
 import numpy as np
-from collections import namedtuple
 
 import torch
 import torch.nn as nn
+from model import Model 
 import torch.optim as optim
 from torch.distributions import Categorical
-from model_dqn import DQN_S as DQN
-from replay_buffer import PrioritizedReplayBuffer
-from schedules import LinearSchedule
+
 
 action_num = 4
 action_list = np.arange(action_num)
-Transition = namedtuple('Transition',
-        ('state', 'action', 'reward', 'next_state') )
 
 class RL_AGENT_A3C():
     """
@@ -58,15 +55,6 @@ class RL_AGENT_A3C():
         self.action = None
         self.action_old = None
     
-    def reset(self):
-        """ 
-        reset the flag, state, reward for a new half or game
-        """
-        self.obs_new = None
-        self.obs_old = None
-        self.action = None
-        self.dqn_direct_flag = False
-
     def load(self, old_model):
         """
         load the trained model
@@ -83,11 +71,8 @@ class RL_AGENT_A3C():
         save the trained model
         """
         t = time.strftime('%m%d%H%M%S')
-        self.model_path_p = self.model_path + 'p' + t + '.pt'
-        self.model_path_t = self.model_path + 't' + t + '.pt'
-        print('target net par is', self.policy_net.state_dict())
-        torch.save(self.policy_net, self.model_path_p)
-        torch.save(self.target_net, self.model_path_t)
+        self.model_path_p = self.model_path + t + '.pt'
+        torch.save(self.ac_model, self.model_path_p)
     
     def save_trace(self, r, done):
         """
@@ -100,7 +85,7 @@ class RL_AGENT_A3C():
         self.saved_r.append(r)
         self.saved_dones.append(done)
 
-    def learn(self, env):
+    def learn(self):
         """
         This func is used to learn the agent
         par:
@@ -115,9 +100,9 @@ class RL_AGENT_A3C():
             adv = R - s_v
             c_loss_all.append(adv.pow(2))
             a_loss_all.append(log_p * adv)
-        c_loss = c_loss_all.mean()
-        a_loss = a_loss_all.mean()
-        loss = a_loss + 0.5 * c_loss - 0.001 * entropy
+        c_loss = sum(c_loss_all)/c_loss_all.__len__()
+        a_loss = sum(a_loss_all)/a_loss_all.__len__()
+        loss = a_loss + 0.5 * c_loss - 0.001 * self.entropy
 
         """ update the par """
         self.optimizer.zero_grad()

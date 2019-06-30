@@ -23,7 +23,7 @@ def conv2d_size_out(layer_num, size, padding=0, kernel_size=3, stride=1):
 
 class Model(nn.Module):
     def __init__(self, h, w, outputs):
-        super(DQN, self).__init__()
+        super(Model, self).__init__()
         cells_layer1 = 64
         cells_layer2 = 32 
         a_out = outputs 
