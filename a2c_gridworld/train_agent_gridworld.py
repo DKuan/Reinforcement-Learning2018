@@ -19,13 +19,13 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='init the par')
 parser.add_argument('-game_num', '--game_num', nargs='?', default=40000)
-parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=7000000)
+parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=2000000)
 parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=500)
 parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0009)
 parser.add_argument('-device', '--device', nargs='?', default=device)
 parser.add_argument('-model_path', '--model_path', nargs='?', default='model/')
 parser.add_argument('-old_model_name', '--o_model_name', nargs='?', \
-        default='0701211805.pt')
+        default=None)
 parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', default='None')
 parser.add_argument('-model_load', '--model_load', nargs='?', default=False)
 parser.add_argument('-gamma', '--gamma', nargs='?', default=0.99)
@@ -100,5 +100,5 @@ for i in range(args.game_num):
 
             """ end the while """
             if done or episode_steps_cnt > args.max_episode_num: 
-                agent.learn()
+                agent.learn(done)
                 break

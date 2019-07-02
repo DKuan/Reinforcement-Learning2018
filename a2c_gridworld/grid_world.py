@@ -84,13 +84,27 @@ class Grid_World():
         old_pos = [self.place[0], self.place[1]] # store the old place
         self.map[old_pos[0]][old_pos[1]] = VALUE_ZERO 
 
-        if action == 0: # up
+        if action == 0: # up left 
             self.place[0] -= 1
-        elif action == 1: # down
-            self.place[0] += 1
-        elif action == 2: # left
             self.place[1] -= 1
-        elif action == 3: # right
+        elif action == 1: # up 
+            self.place[0] -= 1
+        elif action == 2: # up right
+            self.place[0] -= 1
+            self.place[1] += 1
+        elif action == 3: # left
+            self.place[1] -= 1
+        elif action == 4: # None 
+            pass
+        elif action == 5: # right
+            self.place[1] += 1
+        elif action == 6: # down left
+            self.place[0] += 1
+            self.place[1] -= 1
+        elif action == 7: # down 
+            self.place[0] += 1
+        elif action == 8: # down right
+            self.place[0] += 1
             self.place[1] += 1
         else:
             self.reward = -1 

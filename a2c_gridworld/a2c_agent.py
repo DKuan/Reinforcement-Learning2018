@@ -24,7 +24,7 @@ import torch.optim as optim
 from torch.distributions import Categorical
 
 
-action_num = 4
+action_num = 9
 action_list = np.arange(action_num)
 
 class RL_AGENT_A3C():
@@ -37,7 +37,7 @@ class RL_AGENT_A3C():
         self.step_last_update = 0 # record the last update time 
         self.gamma = gamma
         self.value_coef = 0.5
-        self.ent_coef = 0.01 
+        self.ent_coef = 0.02 
         self.max_grad_norm = 0.5 
          
         self.device = device
@@ -49,6 +49,8 @@ class RL_AGENT_A3C():
             self.optimizer = optim.Adagrad(self.ac_model.parameters(), lr=lr)
             self.saved_log_probs = []
             self.saved_value = []
+            self.mirror_saved_log_probs = []
+            self.mirror_saved_value = []
             self.saved_r = []
             self.saved_dones = []
             self.entropy = 0
@@ -92,7 +94,7 @@ class RL_AGENT_A3C():
         self.saved_r.append(r)
         self.saved_dones.append(done)
 
-    def learn(self):
+    def learn(self, done_flag):
         """
         This func is used to learn the agent
         par:
@@ -101,12 +103,17 @@ class RL_AGENT_A3C():
         R = 0 # the return accumulated
         a_loss_all = [] # actor loss
         c_loss_all = [] # critic loss
-        for log_p, s_v, r, done in zip(self.saved_log_probs[::-1], self.saved_value[::-1], \
+        log_probs = self.saved_log_probs if done_flag == False \
+            else [self.saved_log_probs, self.mirror_saved_log_probs]
+        saved_value = self.saved_value if done_flag == False \
+            else [self.saved_value, self.mirror_saved_value]
+        for log_probs_, saved_value_ in zip(log_probs, saved_value):
+            for log_p, s_v, r, done in zip(log_probs_[::-1], saved_value_[::-1], \
                 self.saved_r[::-1], self.saved_dones[::-1]):
-            R = r if done else r + self.gamma*R
-            adv = R - s_v
-            c_loss_all.append(adv.pow(2))
-            a_loss_all.append(log_p * adv)
+                R = r if done else r + self.gamma*R
+                adv = R - s_v
+                c_loss_all.append(adv.pow(2))
+                a_loss_all.append(log_p * adv)
         c_loss = sum(c_loss_all)/c_loss_all.__len__()
         a_loss = sum(a_loss_all)/a_loss_all.__len__()
         loss = -a_loss + self.value_coef * c_loss - self.ent_coef * self.entropy
@@ -145,6 +152,7 @@ class RL_AGENT_A3C():
             
         """ stop save the data if enjoy mode """
         if self.mode_enjoy == False:
+            self.data_augment(state, action)
             self.saved_log_probs.append(m.log_prob(action))
             self.saved_value.append(value)
             self.entropy += m.entropy().mean()
@@ -164,28 +172,33 @@ class RL_AGENT_A3C():
         feature_c = feature_c.resize_(1, 1, size[0], size[1])
         return feature_c
 
-    def data_augment(self, transition):
+    def data_augment(self, feature, action):
         """
         use this func to flip the feature, to boost the experience,
         deal the problem of sparse reward
         par:
-        |transition: tuple, with (feature_o, action, feature_n, reward) 
+        |feature: tensor, show the state now
+        |acton: tensor, return from the network
         """
         flip_ver_dim = 2
-        feature_old = transition[0]
-        action = transition[1]
-        feature_new = transition[3]
-        reward = transition[2]
 
         """ vertical flip """
-        feature_o_aug = feature_old.flip([flip_ver_dim])
-        feature_n_aug = feature_new.flip([flip_ver_dim])
+        feature_aug = feature.flip([flip_ver_dim])
 
         """ vertical :action flip """
-        if action == 0:  action = 1
-        elif action == 1: action = 0
+        if action in [0, 1, 2]: action_delta = 6
+        elif action in [6, 7, 8]: action_delta = -6
+        else: action_delta = 0
+        action += action_delta
 
-        return feature_o_aug, action, reward, feature_n_aug
+        value, probs = self.ac_model(feature_aug)
+        m = Categorical(probs)
+            
+        """ stop save the data if enjoy mode """
+        if self.mode_enjoy == False:
+            self.mirror_saved_log_probs.append(m.log_prob(action))
+            self.mirror_saved_value.append(value)
+            self.entropy += m.entropy().mean()
 
     def act(self, map):
         """ this func is interact with the competition func """
