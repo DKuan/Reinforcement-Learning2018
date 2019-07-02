@@ -29,26 +29,15 @@ class Grid_World():
         self.done = False # if the episode is over
         self.reward = None # return the reward to the agent every step
         self.final_states = []
-        #self.food_pos = np.array([np.random.randint(1, self.grid_depth), \
-        #    np.random.randint(1, self.grid_width)])
-        self.near_food_pos = np.array([[5, 6], [3, 6], [4, 7], [4, 5]])
-        self.food_pos = np.array([4, 6]) 
-        self.map = np.ones((self.grid_depth, self.grid_width))
-        self.init_final_state()
+        #self.food_pos = np.array([4, 6]) 
+        #self.map = np.ones((self.grid_depth, self.grid_width))
+        #self.init_final_state()
 
     def render(self):
         """ 
         show the grid map
         """
         print(self.map)
-
-    def init_final_state(self):
-        for pos in self.near_food_pos:
-            self.map = np.ones((self.grid_depth, self.grid_width))
-            self.map[self.food_pos[0]][self.food_pos[1]] = VALUE_FOOD_POS
-            self.map[pos[0]][pos[1]] = VALUE_OWN_POS
-            self.final_states.append(self.map.copy())
-        self.map = np.ones((self.grid_depth, self.grid_width))
 
     def reset(self):
         """
@@ -58,7 +47,10 @@ class Grid_World():
 
         """ init the state for new game """
         self.map = np.ones((self.grid_depth, self.grid_width))
-        self.place = np.array([0, 0])
+        self.food_pos = np.array([np.random.randint(1, self.grid_depth), \
+            np.random.randint(1, self.grid_width)])
+        self.place = np.array([np.random.randint(1, self.grid_depth), \
+            np.random.randint(1, self.grid_width)])
         self.map[self.food_pos[0]][self.food_pos[1]] = VALUE_FOOD_POS
         self.map[self.place[0]][self.place[1]] = VALUE_OWN_POS
 

@@ -36,12 +36,16 @@ class RL_AGENT_A3C():
         self.step_now = 0 # record the step
         self.step_last_update = 0 # record the last update time 
         self.gamma = gamma
+        self.value_coef = 0.5
+        self.ent_coef = 0.01 
+        self.max_grad_norm = 0.5 
          
         self.device = device
         self.model_path = model_path
         self.mode_enjoy = model_load
         if model_load == False: 
-            self.ac_model = Model(board[0], board[1], action_num).to(device)
+            if o_model_name != None: self.load(o_model_name, retrain=True)
+            else: self.ac_model = Model(board[0], board[1], action_num).to(device)
             self.optimizer = optim.Adagrad(self.ac_model.parameters(), lr=lr)
             self.saved_log_probs = []
             self.saved_value = []
@@ -55,24 +59,27 @@ class RL_AGENT_A3C():
         self.action = None
         self.action_old = None
     
-    def load(self, old_model):
+    def load(self, old_model, retrain=False):
         """
         load the trained model
         par:
         |old_model:str, the name of the old model
         """
-        model_path_t = self.model_path + 't' + old_model
-        self.target_net = torch.load(model_path_t, map_location=self.device)
-        self.target_net.eval()
-        print('target net par', self.target_net.state_dict())
+        model_path = self.model_path + old_model
+        self.ac_model = torch.load(model_path, map_location=self.device)
+        if retrain == True: self.ac_model.eval() 
+        else: 
+            self.ac_model.train()
+            print('retrain the model')
+        #print('target net par', self.ac_model.state_dict())
 
     def save(self):
         """
         save the trained model
         """
         t = time.strftime('%m%d%H%M%S')
-        self.model_path_p = self.model_path + t + '.pt'
-        torch.save(self.ac_model, self.model_path_p)
+        model_path = self.model_path + t + '.pt'
+        torch.save(self.ac_model, model_path)
     
     def save_trace(self, r, done):
         """
@@ -102,11 +109,19 @@ class RL_AGENT_A3C():
             a_loss_all.append(log_p * adv)
         c_loss = sum(c_loss_all)/c_loss_all.__len__()
         a_loss = sum(a_loss_all)/a_loss_all.__len__()
-        loss = a_loss + 0.5 * c_loss - 0.001 * self.entropy
+        loss = -a_loss + self.value_coef * c_loss - self.ent_coef * self.entropy
+
+        """ show the loss change """
+        print('the loss is', loss)
+        #print('the a loss is',a_loss)
+        #print('the c loss is',c_loss)
 
         """ update the par """
         self.optimizer.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(self.ac_model.parameters(), \
+                self.max_grad_norm)
+        #self.ac_model.parameters().clip_grad_norm_(0.5)
         self.optimizer.step()
 
         """ clear the list """
@@ -124,9 +139,15 @@ class RL_AGENT_A3C():
         value, probs = self.ac_model(state)
         m = Categorical(probs)
         action = m.sample()
-        self.saved_log_probs.append(m.log_prob(action))
-        self.saved_value.append(value)
-        self.entropy += m.entropy().mean()
+
+        if self.mode_enjoy == True:
+            print('the probs is', probs)
+            
+        """ stop save the data if enjoy mode """
+        if self.mode_enjoy == False:
+            self.saved_log_probs.append(m.log_prob(action))
+            self.saved_value.append(value)
+            self.entropy += m.entropy().mean()
         return action.item()
 
     def feature_combine(self, obs):

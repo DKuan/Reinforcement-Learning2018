@@ -19,13 +19,14 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='init the par')
 parser.add_argument('-game_num', '--game_num', nargs='?', default=40000)
-parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=1600000)
-parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=300)
-parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0001)
+parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=7000000)
+parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=500)
+parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0009)
 parser.add_argument('-device', '--device', nargs='?', default=device)
 parser.add_argument('-model_path', '--model_path', nargs='?', default='model/')
-parser.add_argument('-old_model_name', '--o_model_name', nargs='?', default='0613205430.pt')
-parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', default='r_memory.pkl')
+parser.add_argument('-old_model_name', '--o_model_name', nargs='?', \
+        default='0701211805.pt')
+parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', default='None')
 parser.add_argument('-model_load', '--model_load', nargs='?', default=False)
 parser.add_argument('-gamma', '--gamma', nargs='?', default=0.99)
 parser.add_argument('-game', '--game_name', nargs='?', default="grid_world")
@@ -50,7 +51,8 @@ agent = RL_AGENT_A3C(args.lr,
 
 """ Set seed for reproducibility """
 model_store_set = [
-        #args.step_stop-800000, args.step_stop-600000, args.step_stop-400000, \
+        args.step_stop-1000000, args.step_stop-800000, 
+        args.step_stop-600000, args.step_stop-400000, \
         args.step_stop-300000, args.step_stop-100000, args.step_stop-10000]
 
 """ Play 10 games """
@@ -90,7 +92,7 @@ for i in range(args.game_num):
             """ print the info """
             if reward > 0:
                 reward_num += 1
-                print('find food for', reward_num,'times', reward)
+                print('find food for', reward_num,'times', episode_steps_cnt)
                 #print('the steps used ', episode_steps_cnt)
 
             """ update the obs """

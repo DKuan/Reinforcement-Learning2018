@@ -24,20 +24,19 @@ def conv2d_size_out(layer_num, size, padding=0, kernel_size=3, stride=1):
 class Model(nn.Module):
     def __init__(self, h, w, outputs):
         super(Model, self).__init__()
-        cells_layer1 = 64
-        cells_layer2 = 32 
+        cells_layer1 = 256 
         a_out = outputs 
         c_out = 1 
         self.lk_ReLU = torch.nn.LeakyReLU(0.01)
         self.softmax = torch.nn.Softmax()
         self.fc_1 = nn.Linear(h * w, cells_layer1)
-        self.fc_2 = nn.Linear(cells_layer1, cells_layer2)
-        self.critic_o = nn.Linear(cells_layer2, c_out)
-        self.actor_o = nn.Linear(cells_layer2, a_out)
+        #self.fc_2 = nn.Linear(cells_layer1, cells_layer2)
+        self.critic_o = nn.Linear(cells_layer1, c_out)
+        self.actor_o = nn.Linear(cells_layer1, a_out)
 
     def forward(self, x):
         x = self.lk_ReLU(self.fc_1(x.flatten()))
-        x = self.lk_ReLU(self.fc_2(x))
+        #x = self.lk_ReLU(self.fc_2(x))
         value = self.critic_o(x)
         prob = self.softmax(self.actor_o(x))
         return value, prob 
