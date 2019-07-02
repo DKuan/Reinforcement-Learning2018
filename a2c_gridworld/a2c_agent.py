@@ -103,9 +103,9 @@ class RL_AGENT_A3C():
         R = 0 # the return accumulated
         a_loss_all = [] # actor loss
         c_loss_all = [] # critic loss
-        log_probs = self.saved_log_probs if done_flag == False \
+        log_probs = [self.saved_log_probs] if done_flag == False \
             else [self.saved_log_probs, self.mirror_saved_log_probs]
-        saved_value = self.saved_value if done_flag == False \
+        saved_value = [self.saved_value] if done_flag == False \
             else [self.saved_value, self.mirror_saved_value]
         for log_probs_, saved_value_ in zip(log_probs, saved_value):
             for log_p, s_v, r, done in zip(log_probs_[::-1], saved_value_[::-1], \
