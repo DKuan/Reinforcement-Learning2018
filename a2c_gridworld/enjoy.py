@@ -23,7 +23,7 @@ parser.add_argument('-device', '--device', nargs='?', default=device)
 parser.add_argument('-model_path', '--model_path', nargs='?', default='model/')
 parser.add_argument('-model_load', '--model_load', nargs='?', default=True)
 parser.add_argument('-old_model_name', '--o_model_name', nargs='?', \
-        default='0701172749.pt')
+        default='0702191637.pt')
 parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', \
         default='r_memory.pkl')
 parser.add_argument('-gamma', '--gamma', nargs='?', default=0.999)
@@ -37,7 +37,7 @@ board_size_dict = {'FFAI-3-v1': (7, 14)}
 """ Smaller variants """
 step_now = 0 # record the global steps
 reward_num = 0
-env = Grid_World(7, 14, 4) 
+env = Grid_World(7, 14) 
 agent = RL_AGENT_A3C(args.lr,
                         args.gamma,
                         board_size_dict[args.game_name],

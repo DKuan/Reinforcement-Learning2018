@@ -37,7 +37,7 @@ class RL_AGENT_A3C():
         self.step_last_update = 0 # record the last update time 
         self.gamma = gamma
         self.value_coef = 0.5
-        self.ent_coef = 0.02 
+        self.ent_coef = 0.014 
         self.max_grad_norm = 0.5 
          
         self.device = device
@@ -119,7 +119,7 @@ class RL_AGENT_A3C():
         loss = -a_loss + self.value_coef * c_loss - self.ent_coef * self.entropy
 
         """ show the loss change """
-        print('the loss is', loss)
+        #print('the loss is', loss)
         #print('the a loss is',a_loss)
         #print('the c loss is',c_loss)
 
@@ -133,7 +133,8 @@ class RL_AGENT_A3C():
 
         """ clear the list """
         self.entropy = 0
-        for l in [self.saved_log_probs, self.saved_value, \
+        for l in [self.saved_log_probs, self.mirror_saved_log_probs, \
+                self.saved_value, self.mirror_saved_value, \
                 self.saved_r, self.saved_dones]:
             l.clear()
 
@@ -152,10 +153,10 @@ class RL_AGENT_A3C():
             
         """ stop save the data if enjoy mode """
         if self.mode_enjoy == False:
-            self.data_augment(state, action)
             self.saved_log_probs.append(m.log_prob(action))
             self.saved_value.append(value)
             self.entropy += m.entropy().mean()
+            self.data_augment(state.clone(), action.clone())
         return action.item()
 
     def feature_combine(self, obs):

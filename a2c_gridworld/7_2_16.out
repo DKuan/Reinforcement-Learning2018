@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "train_agent_gridworld.py", line 15, in <module>
-    from a2c_agent import RL_AGENT_A3C 
-  File "/home/ubuntu/RL2018/a2c_gridworld/a2c_agent.py", line 106
-    log_probs, saved_value = self.saved_log_probs, self.saved_value if done_flag == True:
-                                                                                        ^
-SyntaxError: invalid syntax

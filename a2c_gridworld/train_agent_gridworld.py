@@ -11,21 +11,21 @@ import argparse
 import numpy as np
 from tqdm import tqdm as tqdm
 
-from grid_world  import Grid_World
+from hard_grid_world  import Grid_World
 from a2c_agent import RL_AGENT_A3C 
 
 """ check the device """
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='init the par')
-parser.add_argument('-game_num', '--game_num', nargs='?', default=40000)
-parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=2000000)
-parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=500)
+parser.add_argument('-game_num', '--game_num', nargs='?', default=400000)
+parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=10000000)
+parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=380)
 parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0009)
 parser.add_argument('-device', '--device', nargs='?', default=device)
 parser.add_argument('-model_path', '--model_path', nargs='?', default='model/')
 parser.add_argument('-old_model_name', '--o_model_name', nargs='?', \
-        default=None)
+        default='0702191637.pt')
 parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', default='None')
 parser.add_argument('-model_load', '--model_load', nargs='?', default=False)
 parser.add_argument('-gamma', '--gamma', nargs='?', default=0.99)
@@ -39,7 +39,7 @@ board_size_dict = {'grid_world': (7, 14)}
 """ Smaller variants """
 step_now = 0 # record the global steps
 reward_num = 0
-env = Grid_World(7, 14, 4)
+env = Grid_World(7, 14)
 agent = RL_AGENT_A3C(args.lr,
                         args.gamma,
                         board_size_dict[args.game_name],
@@ -51,9 +51,9 @@ agent = RL_AGENT_A3C(args.lr,
 
 """ Set seed for reproducibility """
 model_store_set = [
-        args.step_stop-1000000, args.step_stop-800000, 
-        args.step_stop-600000, args.step_stop-400000, \
-        args.step_stop-300000, args.step_stop-100000, args.step_stop-10000]
+        args.step_stop-4000000,   
+        args.step_stop-2000000, 
+        args.step_stop-1000000]
 
 """ Play 10 games """
 for i in range(args.game_num):

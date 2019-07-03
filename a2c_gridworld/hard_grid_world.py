@@ -11,12 +11,11 @@ VALUE_OWN_POS = 30
 VALUE_FOOD_POS = 100
 VALUE_ZERO = 1
 
-
 class Grid_World():
     """
     Rewrite the Env_base and realize the file of grid_world
     """
-    def __init__(self, grid_depth, grid_width, num_actions):
+    def __init__(self, grid_depth, grid_width):
         """
         for init the env
         arg:
@@ -25,7 +24,7 @@ class Grid_World():
         """
         self.grid_depth = grid_depth
         self.grid_width = grid_width
-        self.num_actions = num_actions # record the num of the actions
+        #self.num_actions = num_actions # record the num of the actions
         self.done = False # if the episode is over
         self.reward = None # return the reward to the agent every step
         self.final_states = []
@@ -94,7 +93,7 @@ class Grid_World():
         else:
             self.reward = -1 
 
-        self.place[0] = self.range_check(self.place[0], self.grid_depth) # check the right range of the place	
+        self.place[0] = self.range_check(self.place[0], self.grid_depth)
         self.place[1] = self.range_check(self.place[1], self.grid_width)	
 
         if tuple(self.place) == tuple(self.food_pos):
