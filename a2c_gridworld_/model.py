@@ -24,28 +24,21 @@ def conv2d_size_out(layer_num, size, padding=0, kernel_size=3, stride=1):
 class Model(nn.Module):
     def __init__(self, h, w, outputs):
         super(Model, self).__init__()
-        cells_layer_c = 64 
-        cells_layer_a = 64 
+        cells_layer1 = 256 
         a_out = outputs 
         c_out = 1 
         self.lk_ReLU = torch.nn.LeakyReLU(0.01)
         self.softmax = torch.nn.Softmax()
-        self.fc_c_1 = nn.Linear(h * w, cells_layer_c)
-        self.fc_c_2 = nn.Linear(cells_layer_c, cells_layer_c)
-        self.fc_a_1 = nn.Linear(h * w, cells_layer_a)
-        self.fc_a_2 = nn.Linear(cells_layer_a, cells_layer_a)
+        self.fc_1 = nn.Linear(h * w, cells_layer1)
         #self.fc_2 = nn.Linear(cells_layer1, cells_layer2)
-        self.critic_o = nn.Linear(cells_layer_c, c_out)
-        self.actor_o = nn.Linear(cells_layer_a, a_out)
+        self.critic_o = nn.Linear(cells_layer1, c_out)
+        self.actor_o = nn.Linear(cells_layer1, a_out)
 
     def forward(self, x):
-        c = self.lk_ReLU(self.fc_c_1(x.flatten()))
-        c = self.lk_ReLU(self.fc_c_2(c.flatten()))
-        a = self.lk_ReLU(self.fc_a_1(x.flatten()))
-        a = self.lk_ReLU(self.fc_a_2(a.flatten()))
+        x = self.lk_ReLU(self.fc_1(x.flatten()))
         #x = self.lk_ReLU(self.fc_2(x))
-        value = self.critic_o(c)
-        prob = self.softmax(self.actor_o(a))
+        value = self.critic_o(x)
+        prob = self.softmax(self.actor_o(x))
         return value, prob 
 
 class DQN_S(nn.Module):

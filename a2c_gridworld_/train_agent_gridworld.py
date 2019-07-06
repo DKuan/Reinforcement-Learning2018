@@ -11,7 +11,7 @@ import argparse
 import numpy as np
 from tqdm import tqdm as tqdm
 
-from grid_world  import Grid_World
+from hard_grid_world  import Grid_World
 from a2c_agent import RL_AGENT_A3C 
 
 """ check the device """
@@ -19,16 +19,16 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='init the par')
 parser.add_argument('-game_num', '--game_num', nargs='?', default=400000)
-parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=2000000)
-parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=300)
-parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0004)
+parser.add_argument('-step_stop_num', '--step_stop', nargs='?', default=10000000)
+parser.add_argument('-max_episode_num', '--max_episode_num', nargs='?', default=380)
+parser.add_argument('-learning_rate', '--lr', nargs='?', default=0.0001)
 parser.add_argument('-device', '--device', nargs='?', default=device)
 parser.add_argument('-model_path', '--model_path', nargs='?', default='model/')
 parser.add_argument('-old_model_name', '--o_model_name', nargs='?', \
-        default=None)
+        default='0703153100.pt')
 parser.add_argument('-r_memory_Fname', '--r_memory_Fname', nargs='?', default='None')
 parser.add_argument('-model_load', '--model_load', nargs='?', default=False)
-parser.add_argument('-gamma', '--gamma', nargs='?', default=0.99)
+parser.add_argument('-gamma', '--gamma', nargs='?', default=0.983)
 parser.add_argument('-game', '--game_name', nargs='?', default="grid_world")
 args = parser.parse_args()
 #print(args.update_period)

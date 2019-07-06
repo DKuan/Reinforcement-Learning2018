@@ -10,7 +10,7 @@ import numpy as np
 VALUE_OWN_POS = 30
 VALUE_FOOD_POS = 100
 VALUE_ZERO = 1
-num_actions = 9
+
 
 class Grid_World():
     """
@@ -25,7 +25,7 @@ class Grid_World():
         """
         self.grid_depth = grid_depth
         self.grid_width = grid_width
-        self.num_actions = num_actions # record the num of the actions
+        #self.num_actions = num_actions # record the num of the actions
         self.done = False # if the episode is over
         self.reward = None # return the reward to the agent every step
         self.final_states = []

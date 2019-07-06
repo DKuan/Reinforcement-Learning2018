@@ -10,7 +10,6 @@ import numpy as np
 VALUE_OWN_POS = 30
 VALUE_FOOD_POS = 100
 VALUE_ZERO = 1
-num_actions = 9
 
 class Grid_World():
     """
@@ -25,12 +24,10 @@ class Grid_World():
         """
         self.grid_depth = grid_depth
         self.grid_width = grid_width
-        self.num_actions = num_actions # record the num of the actions
+        #self.num_actions = num_actions # record the num of the actions
         self.done = False # if the episode is over
         self.reward = None # return the reward to the agent every step
         self.final_states = []
-        self.food_pos = np.array([np.random.randint(1, self.grid_depth), \
-            np.random.randint(1, self.grid_width)])
         #self.food_pos = np.array([4, 6]) 
         #self.map = np.ones((self.grid_depth, self.grid_width))
         #self.init_final_state()
@@ -48,10 +45,11 @@ class Grid_World():
         """ clear the records for old game """
 
         """ init the state for new game """
+        self.map = np.ones((self.grid_depth, self.grid_width))
         self.food_pos = np.array([np.random.randint(1, self.grid_depth), \
             np.random.randint(1, self.grid_width)])
-        self.map = np.ones((self.grid_depth, self.grid_width))
-        self.place = np.array([0, 0])
+        self.place = np.array([np.random.randint(1, self.grid_depth), \
+            np.random.randint(1, self.grid_width)])
         self.map[self.food_pos[0]][self.food_pos[1]] = VALUE_FOOD_POS
         self.map[self.place[0]][self.place[1]] = VALUE_OWN_POS
 
@@ -84,32 +82,18 @@ class Grid_World():
         old_pos = [self.place[0], self.place[1]] # store the old place
         self.map[old_pos[0]][old_pos[1]] = VALUE_ZERO 
 
-        if action == 0: # up left 
+        if action == 0: # up
             self.place[0] -= 1
-            self.place[1] -= 1
-        elif action == 1: # up 
-            self.place[0] -= 1
-        elif action == 2: # up right
-            self.place[0] -= 1
-            self.place[1] += 1
-        elif action == 3: # left
-            self.place[1] -= 1
-        elif action == 4: # None 
-            pass
-        elif action == 5: # right
-            self.place[1] += 1
-        elif action == 6: # down left
+        elif action == 1: # down
             self.place[0] += 1
+        elif action == 2: # left
             self.place[1] -= 1
-        elif action == 7: # down 
-            self.place[0] += 1
-        elif action == 8: # down right
-            self.place[0] += 1
+        elif action == 3: # right
             self.place[1] += 1
         else:
             self.reward = -1 
 
-        self.place[0] = self.range_check(self.place[0], self.grid_depth) # check the right range of the place	
+        self.place[0] = self.range_check(self.place[0], self.grid_depth)
         self.place[1] = self.range_check(self.place[1], self.grid_width)	
 
         if tuple(self.place) == tuple(self.food_pos):
